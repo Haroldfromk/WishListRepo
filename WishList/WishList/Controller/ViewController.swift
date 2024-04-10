@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     let dataManager = DataManager()
     let alertManager = AlertManager()
     let numberFormatter = NumberFormatter()
