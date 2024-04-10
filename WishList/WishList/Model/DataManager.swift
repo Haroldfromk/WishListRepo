@@ -1,7 +1,7 @@
 
 import Foundation
 
-protocol SendData:AnyObject {
+protocol SendData: AnyObject {
     func sendList (data: [DataModel])
 }
 
