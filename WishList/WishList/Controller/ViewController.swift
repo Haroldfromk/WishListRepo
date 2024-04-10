@@ -22,7 +22,9 @@ class ViewController: UIViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let dataManager = DataManager()
+    let alertManager = AlertManager()
     let numberFormatter = NumberFormatter()
+    let request: NSFetchRequest<Lists> = Lists.fetchRequest()
     
     override func viewDidLoad() {
         
@@ -52,40 +54,54 @@ class ViewController: UIViewController {
     
     
     @IBAction func saveListBtn(_ sender: UIButton) {
-        
-        
-        let newItem = Lists(context: self.context)
-        
-        newItem.id = Int64(list[0].id)
-        newItem.title = list[0].title
-        newItem.price = Int64(list[0].price)
-        newItem.discountPercentage = list[0].discountPercentage
-        
-        do
-        {
-            try context.save()
+
+        do {
+            
+            savedList = try context.fetch(request)
             
         } catch {
+            let alert = alertManager.makingAlert(title: "에러 발생", body: "데이터를 로드 하던 중 오류가 발생했습니다.")
+            self.present(alert, animated: true)
+        }
+        
+        if savedList.filter({$0.id == list[0].id}).count == 1 {
             
-            let alert = UIAlertController(title: "에러 발생", message: "\(error.localizedDescription)가 발생했습니다.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "확인", style: .default))
+            let alert = alertManager.makingAlert(title: "중복된 값이 존재합니다", body: "이미 해당 정보가 위시리스트에 저장되어있습니다.")
             self.present(alert, animated: true)
             
+        } else {
+            
+            let newItem = Lists(context: self.context)
+            newItem.id = Int64(list[0].id)
+            newItem.title = list[0].title
+            newItem.price = Int64(list[0].price)
+            newItem.discountPercentage = list[0].discountPercentage
+            
+            do
+            {
+                try context.save()
+                
+            } catch {
+                let alert = alertManager.makingAlert(title: "에러발생", body: "\(error.localizedDescription)가 발생했습니다.")
+                self.present(alert, animated: true)
+                
+            }
+            
         }
+        
+        savedList.removeAll()
+        dataManager.fetchRequest()
+    
     }
     
     
     
     @IBAction func showDBBtn(_ sender: UIButton) {
         
-        let request: NSFetchRequest<Lists> = Lists.fetchRequest()
-        
         do {
             savedList = try context.fetch(request)
         } catch {
-            
-            let alert = UIAlertController(title: "에러 발생", message: "\(error.localizedDescription)가 발생했습니다.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "확인", style: .default))
+            let alert = alertManager.makingAlert(title: "에러발생", body: "\(error.localizedDescription)가 발생했습니다.")
             self.present(alert, animated: true)
             
         }
@@ -119,8 +135,7 @@ extension ViewController: SendData {
         } else {
             
             DispatchQueue.main.async {
-                let alert = UIAlertController(title: "에러 발생", message: "데이터 로드중 문제가 발생했습니다.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "확인", style: .default))
+                let alert = self.alertManager.makingAlert(title: "에러 발생", body: "데이터 로드중 문제가 발생했습니다.")
                 self.present(alert, animated: true)
             }
 
