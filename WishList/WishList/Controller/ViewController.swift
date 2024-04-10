@@ -110,7 +110,7 @@ class ViewController: UIViewController {
         
         if let tableVC = self.storyboard?.instantiateViewController(identifier: Constansts.tableVC) as? DBTableViewController {
             
-            tableVC.savedList = savedList
+            tableVC.savedList = savedList.sorted(by: {$0.id < $1.id})
             
             self.present(tableVC, animated: true)
             
