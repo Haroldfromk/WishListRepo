@@ -32,9 +32,10 @@ class DBTableViewController: UITableViewController {
             return UITableViewCell()
         }
         
-        let price = Double(savedList[indexPath.row].price) * (100.00 - savedList[indexPath.row].discountPercentage)
+        let price = Double(savedList[indexPath.row].price) * (100.00 - savedList[indexPath.row].discountPercentage) / 100
         
         cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
+        cell.textLabel?.numberOfLines = 0
         cell.textLabel?.text = "[\(savedList[indexPath.row].id)] \(savedList[indexPath.row].title ?? "None") - \(numberFormatter.string(from: price as NSNumber) ?? "0")$"
         
         cell.selectionStyle = .none

@@ -125,7 +125,7 @@ extension ViewController: SendData {
             list = data
             
             DispatchQueue.main.async {
-                let price = self.numberFormatter.string(from: Double(self.list[0].price) * (100.00 - self.list[0].discountPercentage) as NSNumber)
+                let price = self.numberFormatter.string(from: Double(self.list[0].price) * (100.00 - self.list[0].discountPercentage) / 100 as NSNumber)
                 self.imageView.load(url: URL(string: self.list[0].thumbnail)!)
                 self.titleLabel.text = self.list[0].title
                 self.bodyLabel.text = self.list[0].description
