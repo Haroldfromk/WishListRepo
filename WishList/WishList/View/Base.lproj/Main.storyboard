@@ -16,89 +16,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i3S-UB-jCE">
-                                <rect key="frame" x="46" y="79" width="301" height="250"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="LbH-0U-pm1"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="250" id="mWp-bM-IyD"/>
-                                    <constraint firstAttribute="width" constant="300" id="zxb-YN-uCc"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fn9-vp-rKn">
-                                <rect key="frame" x="46" y="349" width="301" height="20.333333333333314"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="wRw-gg-mXm"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Blz-wR-M85">
-                                <rect key="frame" x="46" y="384.33333333333331" width="301" height="149.99999999999994"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="NwV-6f-SgR"/>
-                                    <constraint firstAttribute="width" constant="300" id="pv5-qQ-2kx"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qf9-Uv-RrH">
-                                <rect key="frame" x="221" y="685" width="126" height="66"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VTd-pw-JSp">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="다음"/>
-                                <connections>
-                                    <action selector="getDataBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mLv-ha-5oQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMp-Ng-KXr">
-                                <rect key="frame" x="46" y="685" width="126" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="담기"/>
-                                <connections>
-                                    <action selector="saveListBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e7X-Nd-6Xt"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTE-FA-045">
-                                <rect key="frame" x="170" y="759" width="54" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="확인"/>
-                                <connections>
-                                    <action selector="showDBBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w84-9h-4ab"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEI-M5-3bk">
-                                <rect key="frame" x="46" y="554.33333333333337" width="111" height="20.333333333333371"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i3S-UB-jCE">
+                                        <rect key="frame" x="46" y="50" width="300" height="250"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEI-M5-3bk">
+                                        <rect key="frame" x="46" y="597" width="110" height="20.333333333333371"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Blz-wR-M85">
+                                        <rect key="frame" x="46" y="439" width="300" height="149.99999999999994"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fn9-vp-rKn">
+                                        <rect key="frame" x="46" y="453" width="300" height="20.333333333333314"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMp-Ng-KXr">
+                                        <rect key="frame" x="46" y="625" width="126" height="66"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="담기"/>
+                                        <connections>
+                                            <action selector="saveListBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e7X-Nd-6Xt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qf9-Uv-RrH">
+                                        <rect key="frame" x="239" y="625" width="126" height="66"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="다음"/>
+                                        <connections>
+                                            <action selector="getDataBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mLv-ha-5oQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTE-FA-045">
+                                        <rect key="frame" x="169" y="699" width="54" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="확인"/>
+                                        <connections>
+                                            <action selector="showDBBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w84-9h-4ab"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Ak3-Rb-J2T"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="ghg-5g-4Y4"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="vEI-M5-3bk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="2D5-GS-C4b"/>
-                            <constraint firstItem="vEI-M5-3bk" firstAttribute="top" secondItem="Blz-wR-M85" secondAttribute="bottom" constant="20" id="4Ev-Vd-09w"/>
-                            <constraint firstItem="Blz-wR-M85" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="CoX-hx-fNG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Blz-wR-M85" secondAttribute="trailing" constant="46" id="T4z-A9-wEc"/>
-                            <constraint firstItem="Fn9-vp-rKn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="TVq-4S-r99"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="i3S-UB-jCE" secondAttribute="trailing" constant="46" id="Vfe-wA-u2k"/>
-                            <constraint firstItem="Fn9-vp-rKn" firstAttribute="top" secondItem="i3S-UB-jCE" secondAttribute="bottom" constant="20" id="aiV-kv-uBl"/>
-                            <constraint firstItem="i3S-UB-jCE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="46" id="dVa-UR-CoU"/>
-                            <constraint firstItem="i3S-UB-jCE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dq9-cV-MQ4"/>
-                            <constraint firstItem="Blz-wR-M85" firstAttribute="top" secondItem="Fn9-vp-rKn" secondAttribute="bottom" constant="15" id="hDi-E9-sIc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vEI-M5-3bk" secondAttribute="trailing" constant="236" id="igr-uv-irp"/>
-                            <constraint firstItem="i3S-UB-jCE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="li2-lO-6Ej"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fn9-vp-rKn" secondAttribute="trailing" constant="46" id="oLw-R3-bgF"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="bodyLabel" destination="Blz-wR-M85" id="q3t-3d-kWu"/>
                         <outlet property="imageView" destination="i3S-UB-jCE" id="Jwv-Y6-b6F"/>
                         <outlet property="priceLabel" destination="vEI-M5-3bk" id="AOe-3H-75b"/>
+                        <outlet property="scrollView" destination="VTd-pw-JSp" id="pw4-6d-swT"/>
                         <outlet property="titleLabel" destination="Fn9-vp-rKn" id="vN2-Ux-WPE"/>
                     </connections>
                 </viewController>

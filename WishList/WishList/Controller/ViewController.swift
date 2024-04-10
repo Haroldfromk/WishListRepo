@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let dataManager = DataManager()
     let numberFormatter = NumberFormatter()
@@ -31,6 +33,16 @@ class ViewController: UIViewController {
         dataManager.delegate = self
         numberFormatter.numberStyle = .decimal
         dataManager.fetchRequest()
+        scrollView.refreshControl = UIRefreshControl()
+        scrollView.refreshControl?.addTarget(self, action: #selector(reloadJson), for: .valueChanged)
+    }
+    
+    @objc func reloadJson() {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.dataManager.fetchRequest()
+            self.scrollView.refreshControl?.endRefreshing()
+        }
         
     }
     
