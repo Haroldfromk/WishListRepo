@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     var list: [DataModel] = [DataModel]()
     var savedList: [Lists] = [Lists]()
     
-    @IBOutlet weak var imageView: UIImageView!
+
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
     
@@ -22,11 +22,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageScrollView: UIScrollView!
     @IBOutlet weak var imagePageControl: UIPageControl!
-    
+
     
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    let makingImageView = MakingImageView()
     let dataManager = DataManager()
     let alertManager = AlertManager()
     let numberFormatter = NumberFormatter()
@@ -120,18 +121,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func addImage() {
-        
-        for i in 0 ..< list[0].images.count - 1 {
-            let imageView = UIImageView()
-            let xPos = imageScrollView.frame.width * CGFloat(i)
-            imageView.frame = CGRect(x: xPos, y: 0, width: imageScrollView.bounds.width, height: imageScrollView.bounds.height)
-            imageView.load(url: URL(string: list[0].images[i])!)
-            imageScrollView.addSubview(imageView)
-            imageScrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1)
-        }
-        
-    }
+
     
 }
 
@@ -166,7 +156,7 @@ extension ViewController: SendData {
                 self.priceLabel.text = "\(self.numberFormatter.string(from: self.list[0].price as NSNumber) ?? "0") $"
                 self.discountedLabel.text = "할인 적용: \(price ?? "0")$"
                 self.setPageCount()
-                self.addImage()
+                self.makingImageView.makingImage(list: self.list, scrollView: self.imageScrollView)
                 self.scrollViewDidScroll(self.imageScrollView)
 
             }
