@@ -72,6 +72,7 @@ WishList
 │   ├── DataManager
 │   ├── DataModel
 │   ├── LocalModel
+│   ├── MakingImageView
 │   └── AlertManager
 │
 ├── View
