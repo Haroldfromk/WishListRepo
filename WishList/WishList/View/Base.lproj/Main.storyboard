@@ -79,15 +79,6 @@
                                             <action selector="showDBBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w84-9h-4ab"/>
                                         </connections>
                                     </button>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZJQ-aI-lJ6">
-                                        <rect key="frame" x="46" y="50" width="300" height="300"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="300" id="H0l-WG-QK7"/>
-                                            <constraint firstAttribute="width" constant="300" id="xaj-ev-off"/>
-                                        </constraints>
-                                        <viewLayoutGuide key="contentLayoutGuide" id="p7T-oB-fw3"/>
-                                        <viewLayoutGuide key="frameLayoutGuide" id="kBU-Sb-Aed"/>
-                                    </scrollView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMp-Ng-KXr">
                                         <rect key="frame" x="61" y="625" width="53.666666666666657" height="34.333333333333371"/>
                                         <constraints>
@@ -99,29 +90,46 @@
                                             <action selector="saveListBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e7X-Nd-6Xt"/>
                                         </connections>
                                     </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QsS-S0-NgK">
+                                        <rect key="frame" x="46" y="48" width="300" height="333.66666666666669"/>
+                                        <subviews>
+                                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZJQ-aI-lJ6">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="300" id="H0l-WG-QK7"/>
+                                                    <constraint firstAttribute="width" constant="300" id="xaj-ev-off"/>
+                                                </constraints>
+                                                <viewLayoutGuide key="contentLayoutGuide" id="p7T-oB-fw3"/>
+                                                <viewLayoutGuide key="frameLayoutGuide" id="kBU-Sb-Aed"/>
+                                            </scrollView>
+                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="sCr-HC-ywI">
+                                                <rect key="frame" x="92" y="308" width="115.66666666666669" height="25.666666666666686"/>
+                                                <color key="pageIndicatorTintColor" systemColor="tintColor"/>
+                                                <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </pageControl>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Fn9-vp-rKn" firstAttribute="leading" secondItem="ghg-5g-4Y4" secondAttribute="leading" constant="46" id="6l9-5M-m1s"/>
                                     <constraint firstItem="ghg-5g-4Y4" firstAttribute="trailing" secondItem="DTE-FA-045" secondAttribute="trailing" constant="170" id="7Hw-sM-Iow"/>
+                                    <constraint firstItem="Fn9-vp-rKn" firstAttribute="top" secondItem="QsS-S0-NgK" secondAttribute="bottom" constant="8.3333333333333144" id="9qT-Tl-l5e"/>
                                     <constraint firstItem="mMp-Ng-KXr" firstAttribute="top" secondItem="vEI-M5-3bk" secondAttribute="bottom" constant="10" id="9sp-HQ-fiq"/>
                                     <constraint firstAttribute="bottom" secondItem="mMp-Ng-KXr" secondAttribute="bottom" constant="99.666666666666629" id="EaU-9H-yV9"/>
                                     <constraint firstAttribute="trailing" secondItem="Qf9-Uv-RrH" secondAttribute="trailing" constant="47.000000000000057" id="G4w-qx-6ma"/>
                                     <constraint firstItem="DTE-FA-045" firstAttribute="top" secondItem="Y80-52-AoC" secondAttribute="bottom" constant="73" id="JnP-mu-tJg"/>
-                                    <constraint firstItem="ghg-5g-4Y4" firstAttribute="trailing" secondItem="ZJQ-aI-lJ6" secondAttribute="trailing" constant="47" id="Ka6-rh-nR0"/>
                                     <constraint firstItem="Qf9-Uv-RrH" firstAttribute="top" secondItem="Y80-52-AoC" secondAttribute="bottom" constant="10" id="NTj-VN-elx"/>
                                     <constraint firstItem="ghg-5g-4Y4" firstAttribute="trailing" secondItem="Qf9-Uv-RrH" secondAttribute="trailing" constant="47" id="Qyz-Pf-2U6"/>
                                     <constraint firstItem="vEI-M5-3bk" firstAttribute="top" secondItem="Blz-wR-M85" secondAttribute="bottom" constant="10" id="WGA-dS-z1s"/>
                                     <constraint firstItem="ghg-5g-4Y4" firstAttribute="trailing" secondItem="Y80-52-AoC" secondAttribute="trailing" constant="47" id="XeC-uj-1Dj"/>
-                                    <constraint firstItem="Fn9-vp-rKn" firstAttribute="top" secondItem="ZJQ-aI-lJ6" secondAttribute="bottom" constant="40" id="bBM-rQ-dMQ"/>
                                     <constraint firstItem="DTE-FA-045" firstAttribute="leading" secondItem="ghg-5g-4Y4" secondAttribute="leading" constant="169" id="dmC-v6-4tO"/>
                                     <constraint firstItem="vEI-M5-3bk" firstAttribute="leading" secondItem="ghg-5g-4Y4" secondAttribute="leading" constant="46" id="fHS-Be-dKr"/>
                                     <constraint firstItem="ghg-5g-4Y4" firstAttribute="trailing" secondItem="Blz-wR-M85" secondAttribute="trailing" constant="47" id="gPW-Oh-02Y"/>
                                     <constraint firstItem="ghg-5g-4Y4" firstAttribute="trailing" secondItem="Fn9-vp-rKn" secondAttribute="trailing" constant="47" id="iVQ-bY-E1c"/>
-                                    <constraint firstItem="ZJQ-aI-lJ6" firstAttribute="top" secondItem="ghg-5g-4Y4" secondAttribute="top" constant="50" id="k2L-Xa-phY"/>
                                     <constraint firstItem="Y80-52-AoC" firstAttribute="top" secondItem="Blz-wR-M85" secondAttribute="bottom" constant="9" id="mZh-FI-jc1"/>
                                     <constraint firstItem="ghg-5g-4Y4" firstAttribute="bottom" secondItem="DTE-FA-045" secondAttribute="bottom" constant="37" id="odi-h1-oIH"/>
                                     <constraint firstItem="Blz-wR-M85" firstAttribute="leading" secondItem="ghg-5g-4Y4" secondAttribute="leading" constant="46" id="qGD-PQ-tVz"/>
-                                    <constraint firstItem="ZJQ-aI-lJ6" firstAttribute="leading" secondItem="ghg-5g-4Y4" secondAttribute="leading" constant="46" id="u63-fw-bgY"/>
+                                    <constraint firstItem="Fn9-vp-rKn" firstAttribute="leading" secondItem="QsS-S0-NgK" secondAttribute="leading" id="s29-e7-Cly"/>
                                     <constraint firstItem="mMp-Ng-KXr" firstAttribute="leading" secondItem="ghg-5g-4Y4" secondAttribute="leading" constant="61" id="wsv-t3-xhI"/>
                                     <constraint firstItem="Blz-wR-M85" firstAttribute="top" secondItem="Fn9-vp-rKn" secondAttribute="bottom" constant="25" id="xo6-KH-7Wr"/>
                                     <constraint firstItem="Qf9-Uv-RrH" firstAttribute="leading" secondItem="mMp-Ng-KXr" secondAttribute="trailing" constant="177.66999999999999" id="zHu-M9-sGO"/>
@@ -133,6 +141,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="VTd-pw-JSp" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Rkn-mT-01m"/>
                             <constraint firstItem="VTd-pw-JSp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="grU-yc-FhT"/>
                             <constraint firstItem="VTd-pw-JSp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="weo-3I-a7k"/>
                         </constraints>
@@ -140,6 +149,7 @@
                     <connections>
                         <outlet property="bodyLabel" destination="Blz-wR-M85" id="q3t-3d-kWu"/>
                         <outlet property="discountedLabel" destination="Y80-52-AoC" id="D8o-aA-GWW"/>
+                        <outlet property="imagePageControl" destination="sCr-HC-ywI" id="9H6-WW-AUW"/>
                         <outlet property="imageScrollView" destination="ZJQ-aI-lJ6" id="g1L-7y-VWh"/>
                         <outlet property="priceLabel" destination="vEI-M5-3bk" id="AOe-3H-75b"/>
                         <outlet property="scrollView" destination="VTd-pw-JSp" id="pw4-6d-swT"/>
@@ -183,6 +193,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

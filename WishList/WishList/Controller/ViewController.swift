@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageScrollView: UIScrollView!
-    //@IBOutlet weak var imagePageControl: UIPageControl!
+    @IBOutlet weak var imagePageControl: UIPageControl!
     
     
     
@@ -36,13 +36,12 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
-        
         dataManager.delegate = self
         numberFormatter.numberStyle = .decimal
         dataManager.fetchRequest()
         scrollView.refreshControl = UIRefreshControl()
         scrollView.refreshControl?.addTarget(self, action: #selector(reloadJson), for: .valueChanged)
+        imageScrollView.delegate = self
     }
     
     @objc func reloadJson() {
@@ -136,6 +135,23 @@ class ViewController: UIViewController {
     
 }
 
+extension ViewController: UIScrollViewDelegate {
+    
+    func setPageCount () { // page의 카운트를 정해줌.
+        imagePageControl.numberOfPages = list[0].images.count - 1
+    }
+    
+    private func setPageControlSelectedPage(currentPage:Int) { // 현재 페이지를 보여줌
+        imagePageControl.currentPage = currentPage
+      }
+    
+    func scrollViewDidScroll(_ imageScrollView: UIScrollView) {
+        let value = imageScrollView.contentOffset.x/imageScrollView.frame.size.width
+        setPageControlSelectedPage(currentPage: Int(round(value)))
+    }
+    
+}
+
 extension ViewController: SendData {
     
     func sendList(data: [DataModel]) {
@@ -149,7 +165,9 @@ extension ViewController: SendData {
                 self.bodyLabel.text = self.list[0].description
                 self.priceLabel.text = "\(self.numberFormatter.string(from: self.list[0].price as NSNumber) ?? "0") $"
                 self.discountedLabel.text = "할인 적용: \(price ?? "0")$"
+                self.setPageCount()
                 self.addImage()
+                self.scrollViewDidScroll(self.imageScrollView)
 
             }
         } else {
