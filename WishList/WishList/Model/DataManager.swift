@@ -49,8 +49,9 @@ class DataManager {
             let price = decodedData.price
             let discountPercentage = decodedData.discountPercentage
             let thumnail = decodedData.thumbnail
+            let images = decodedData.images
             
-            let list: [DataModel] = [DataModel(id: id, title: title, description: description, price: price, discountPercentage: discountPercentage, thumbnail: thumnail)]
+            let list: [DataModel] = [DataModel(id: id, title: title, description: description, price: price, discountPercentage: discountPercentage, images: images, thumbnail: thumnail)]
           
             return list
             

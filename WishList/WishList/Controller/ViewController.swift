@@ -16,9 +16,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var bodyLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
     
+    @IBOutlet weak var discountedLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var imageScrollView: UIScrollView!
+    //@IBOutlet weak var imagePageControl: UIPageControl!
+    
+    
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -31,7 +36,7 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         
-        //print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
         dataManager.delegate = self
         numberFormatter.numberStyle = .decimal
@@ -55,7 +60,7 @@ class ViewController: UIViewController {
     
     
     @IBAction func saveListBtn(_ sender: UIButton) {
-
+        
         do {
             
             savedList = try context.fetch(request)
@@ -92,7 +97,6 @@ class ViewController: UIViewController {
         
         savedList.removeAll()
         dataManager.fetchRequest()
-    
     }
     
     
@@ -116,6 +120,20 @@ class ViewController: UIViewController {
             
         }
     }
+    
+    func addImage() {
+        
+        for i in 0 ..< list[0].images.count - 1 {
+            let imageView = UIImageView()
+            let xPos = imageScrollView.frame.width * CGFloat(i)
+            imageView.frame = CGRect(x: xPos, y: 0, width: imageScrollView.bounds.width, height: imageScrollView.bounds.height)
+            imageView.load(url: URL(string: list[0].images[i])!)
+            imageScrollView.addSubview(imageView)
+            imageScrollView.contentSize.width = imageView.frame.width * CGFloat(i + 1)
+        }
+        
+    }
+    
 }
 
 extension ViewController: SendData {
@@ -127,11 +145,12 @@ extension ViewController: SendData {
             
             DispatchQueue.main.async {
                 let price = self.numberFormatter.string(from: Double(self.list[0].price) * (100.00 - self.list[0].discountPercentage) / 100 as NSNumber)
-                self.imageView.load(url: URL(string: self.list[0].thumbnail)!)
                 self.titleLabel.text = self.list[0].title
                 self.bodyLabel.text = self.list[0].description
-                self.priceLabel.text = "\(price ?? "0")$"
-                
+                self.priceLabel.text = "\(self.numberFormatter.string(from: self.list[0].price as NSNumber) ?? "0") $"
+                self.discountedLabel.text = "할인 적용: \(price ?? "0")$"
+                self.addImage()
+
             }
         } else {
             
@@ -139,11 +158,11 @@ extension ViewController: SendData {
                 let alert = self.alertManager.makingAlert(title: "에러 발생", body: "데이터 로드중 문제가 발생했습니다.")
                 self.present(alert, animated: true)
             }
-
+            
         }
-
+        
     }
-   
+    
 }
 
 extension UIImageView {

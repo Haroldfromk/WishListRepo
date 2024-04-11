@@ -7,13 +7,14 @@
 
 import Foundation
 
-struct DataModel: Decodable {
+struct DataModel: Codable {
     
     let id: Int
     let title: String
     let description: String
     let price: Int
     let discountPercentage: Double
+    let images: [String]
     let thumbnail: String
     
 }
