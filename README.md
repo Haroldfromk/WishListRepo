@@ -24,6 +24,7 @@
     <img src="https://github.com/Haroldfromk/WishListRepo/assets/97341336/a508c470-1862-4eac-bc01-d76c508c7b24" width="200">
     <img src="https://github.com/Haroldfromk/WishListRepo/assets/97341336/32aea924-c96f-418e-bb04-5be20bb6dc39" width="200">
     <img src="https://github.com/Haroldfromk/WishListRepo/assets/97341336/60d9b96f-657b-4c0a-b93d-27bc0863d767" width="200">
+    <img src="https://github.com/Haroldfromk/haroldfromk.github.io/assets/97341336/683481d6-a1f3-4ee6-920f-754246f5d3d2" width="200">
 </p>
 
 ## Main Feature
@@ -47,6 +48,9 @@
 
 ### Swipe 로 삭제도 간편하게
 - 삭제는 간편하지만 실수를 방지하기위해 센스있는 삭제 전 확인 기능.
+
+### 여러가지 이미지 제공으로 인한 늘어난 선택의 폭
+- 기존에는 한장의 이미지만 보여줬다면 이번에는 여러장의 이미지를 제공 (new)
 
 ## Requirements
 - App requires **iOS 17.4 or above**
